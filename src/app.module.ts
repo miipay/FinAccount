@@ -1,28 +1,22 @@
 import { APP_FILTER, APP_PIPE } from '@nestjs/core';
 import { Module, NestModule, MiddlewareConsumer, ValidationPipe } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule } from '@nestjs/config';
 // shared
 import { LoggerMiddleware } from './shared/middlewares/logger.middleware';
 import { InternalServerErrorFilter } from './shared/filters/internal-server-error.filter';
 import { AllExceptionsFilter } from './shared/filters/all-exception.filter';
 import { EntityNotFoundExceptionFilter } from './shared/filters/entity-not-found.filter';
+import { getTypeOrmModuleForRoot } from './app.typeorm';
 // accounts
 import { AccountsModule } from './accounts/account.module';
-import { Entities } from './accounts/entities';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mariadb',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '1234567890',
-      database: 'finaccount',
-      entities: [...Entities],
-      timezone: 'Z',
-      synchronize: true,
+    ConfigModule.forRoot({
+      envFilePath: ['.env', '.env.dev'],
+      isGlobal: true,
     }),
+    getTypeOrmModuleForRoot(),
     AccountsModule,
   ],
   providers: [
