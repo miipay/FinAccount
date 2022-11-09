@@ -1,0 +1,5 @@
+TODO:
+* integrate JWT auth
+
+Done:
+* DB migration: https://orkhan.gitbook.io/typeorm/docs/migrations#how-migrations-work (done)
