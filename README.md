@@ -29,6 +29,11 @@ $ yarn test
 # e2e tests
 $ yarn test:e2e
 
+# e2e tests - local or development
+$ yarn test:e2e:startdb
+$ yarn test:e2e:local
+$ yarn test:e2e:stopdb
+
 # test coverage
 $ yarn test:cov
 ```

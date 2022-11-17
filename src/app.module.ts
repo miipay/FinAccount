@@ -1,8 +1,7 @@
 import { APP_FILTER, APP_PIPE } from '@nestjs/core';
-import { Module, NestModule, MiddlewareConsumer, ValidationPipe } from '@nestjs/common';
+import { Module, ValidationPipe } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 // shared
-import { LoggerMiddleware } from './shared/middlewares/logger.middleware';
 import { InternalServerErrorFilter } from './shared/filters/internal-server-error.filter';
 import { AllExceptionsFilter } from './shared/filters/all-exception.filter';
 import { EntityNotFoundExceptionFilter } from './shared/filters/entity-not-found.filter';
@@ -41,8 +40,4 @@ import { AccountsModule } from './accounts/account.module';
     },
   ],
 })
-export class AppModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(LoggerMiddleware).forRoutes('/');
-  }
-}
+export class AppModule {}
