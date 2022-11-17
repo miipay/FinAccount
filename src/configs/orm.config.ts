@@ -15,6 +15,7 @@ export const getTypeOrmModuleOptions = (entities?: string[] | any[]): DataSource
   };
 
   switch (process.env.NODE_ENV) {
+    case 'test-local':
     case 'test':
       return {
         ...baseOptions,
