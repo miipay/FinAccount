@@ -1,8 +1,8 @@
 import CurrencyList from 'currency-list';
 
 export enum AccountType {
-  DEFAULT = 0,
-  RESERVE,
+  DEBIT = 0,
+  CREDIT,
 }
 
 export enum DepositWithdraw {

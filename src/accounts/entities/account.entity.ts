@@ -11,7 +11,7 @@ export class Account {
   @Column({ length: 128 })
   name: string;
 
-  @Column({ type: 'enum', enum: AccountType, default: AccountType.DEFAULT })
+  @Column({ type: 'enum', enum: AccountType, default: AccountType.DEBIT })
   type: AccountType;
 
   @Column({ default: true })
