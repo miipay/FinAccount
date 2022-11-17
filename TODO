@@ -5,3 +5,4 @@ TODO:
 Done:
 * DB migration: https://orkhan.gitbook.io/typeorm/docs/migrations#how-migrations-work (done)
 * integrate JWT auth
+* e2e-tests in github action

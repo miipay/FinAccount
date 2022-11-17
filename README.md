@@ -1,6 +1,8 @@
 # FinAccount
 Financial accounts for miipay
 
+* e2e-tests: [![Node.js CI](https://github.com/miipay/FinAccount/actions/workflows/e2e-test.yaml/badge.svg)](https://github.com/miipay/FinAccount/actions/workflows/e2e-test.yaml)
+
 ## Installation
 
 ```bash
