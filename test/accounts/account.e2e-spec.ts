@@ -157,6 +157,50 @@ describe('AccountController (e2e)', () => {
         })
         .expect(403);
     });
+
+    it('/accounts/:id/deposit (PUT) negative deposit -> 400', async () => {
+      await request(app.getHttpServer())
+        .put(`/accounts/${testAccount.id}/deposit`)
+        .set('Authorization', `Bearer ${accessTokenAll}`)
+        .send({
+          amount: '-100',
+          note: '-100',
+        })
+        .expect(400);
+    });
+
+    it('/accounts/:id/deposit (PUT) zero deposit -> 400', async () => {
+      await request(app.getHttpServer())
+        .put(`/accounts/${testAccount.id}/deposit`)
+        .set('Authorization', `Bearer ${accessTokenAll}`)
+        .send({
+          amount: '0',
+          note: '0',
+        })
+        .expect(400);
+    });
+
+    it('/accounts/:id/withdraw (PUT) negative withdraw -> 400', async () => {
+      await request(app.getHttpServer())
+        .put(`/accounts/${testAccount.id}/withdraw`)
+        .set('Authorization', `Bearer ${accessTokenAll}`)
+        .send({
+          amount: '-100',
+          note: '-100',
+        })
+        .expect(400);
+    });
+
+    it('/accounts/:id/withdraw (PUT) zero withdraw -> 400', async () => {
+      await request(app.getHttpServer())
+        .put(`/accounts/${testAccount.id}/withdraw`)
+        .set('Authorization', `Bearer ${accessTokenAll}`)
+        .send({
+          amount: '0',
+          note: '0',
+        })
+        .expect(400);
+    });
   });
 
   describe('Transfer account', () => {
@@ -188,7 +232,7 @@ describe('AccountController (e2e)', () => {
           .post('/accounts')
           .set('Authorization', `Bearer ${accessTokenAll}`)
           .send({
-            name: 'test account1',
+            name: 'test account2',
             currency: 'USD',
             type: 0,
           })
@@ -224,6 +268,28 @@ describe('AccountController (e2e)', () => {
         .set('Authorization', `Bearer ${accessTokenAll}`)
         .send({
           amount: '1000',
+          note: 'pay back',
+        })
+        .expect(400);
+    });
+
+    it('/accounts/:id/transfer/:id (PUT) negative amount -> 400, oversend', async () => {
+      await request(app.getHttpServer())
+        .put(`/accounts/${testAccount1.id}/transfer/${testAccount2.id}`)
+        .set('Authorization', `Bearer ${accessTokenAll}`)
+        .send({
+          amount: '-1000',
+          note: 'pay back',
+        })
+        .expect(400);
+    });
+
+    it('/accounts/:id/transfer/:id (PUT) zero amount -> 400, oversend', async () => {
+      await request(app.getHttpServer())
+        .put(`/accounts/${testAccount1.id}/transfer/${testAccount2.id}`)
+        .set('Authorization', `Bearer ${accessTokenAll}`)
+        .send({
+          amount: '0',
           note: 'pay back',
         })
         .expect(400);

@@ -2,8 +2,12 @@ import * as path from 'path';
 import * as dotenv from 'dotenv';
 import { DataSource, DataSourceOptions } from 'typeorm';
 
+const LOCAL_TEST_ENV = ['test-local'];
+
 const envFile =
-  process.env.NODE_ENV === 'test-local' ? path.join(__dirname, '../.env.test.local') : path.join(__dirname, '../.env');
+  LOCAL_TEST_ENV.indexOf(process.env.NODE_ENV) > -1
+    ? path.join(__dirname, '../../.env.test.local')
+    : path.join(__dirname, '../../.env');
 dotenv.config({ path: envFile });
 
 export const getTypeOrmModuleOptions = (entities?: string[] | any[]): DataSourceOptions => {
