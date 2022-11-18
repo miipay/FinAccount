@@ -43,5 +43,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
+      - name: install 3rd deps
+        run: yarn
+      - name: Migrate database
+        run: yarn migrate
       - name: Run e2e test
-        run: yarn && yarn test:e2e
+        run: yarn test:e2e

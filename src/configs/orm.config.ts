@@ -29,7 +29,7 @@ export const getTypeOrmModuleOptions = (entities?: string[] | any[]): DataSource
         database: process.env.DB_DATABASE,
         username: process.env.DB_USERNAME,
         password: process.env.DB_PASSWORD,
-        synchronize: true,
+        synchronize: false,
       };
     case 'production':
     default:

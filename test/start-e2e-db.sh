@@ -5,3 +5,5 @@ source .env.test.local
 docker run -d --name testing-db -e MARIADB_ROOT_PASSWORD="$DB_PASSWORD" -e MYSQL_DATABASE="$DB_DATABASE" -p "$DB_PORT:3306" mariadb:latest
 echo "wait 5s for DB startup"
 sleep 5
+# migrate database
+yarn migrate
