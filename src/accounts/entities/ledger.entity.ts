@@ -1,6 +1,6 @@
 import { Entity, CreateDateColumn, Column, Index, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import Decimal from 'decimal.js';
-import { DecimalTransformer } from '../../shared/transformers/decimal.transformer';
+import { DecimalTransformer } from '@src/shared/transformers/decimal.transformer';
 import { DepositWithdraw } from '../constants';
 import { Account } from './account.entity';
 

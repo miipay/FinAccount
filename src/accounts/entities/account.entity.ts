@@ -1,6 +1,6 @@
 import Decimal from 'decimal.js';
 import { Entity, CreateDateColumn, Column, Index, PrimaryGeneratedColumn } from 'typeorm';
-import { DecimalTransformer } from '../../shared/transformers/decimal.transformer';
+import { DecimalTransformer } from '@src/shared/transformers/decimal.transformer';
 import { CURRENCY_CODES, AccountType } from '../constants';
 
 @Entity()

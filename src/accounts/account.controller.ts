@@ -1,8 +1,8 @@
 import { Body, Controller, Get, Header, HttpCode, Param, ParseIntPipe, Post, Put, UseGuards } from '@nestjs/common';
 import { Paginate, PaginateQuery, Paginated } from 'nestjs-paginate';
-import { AccessTokenGuard } from '../shared/guards/access-token.guard';
-import { PermissionsGuard } from '../shared/guards/permission.guard';
-import { Permissions } from '../shared/decorators/permission.decorator';
+import { AccessTokenGuard } from '@src/shared/guards/access-token.guard';
+import { PermissionsGuard } from '@src/shared/guards/permission.guard';
+import { Permissions } from '@src/shared/decorators/permission.decorator';
 import { Account, DepositWithdrawLedger, TransferLedger } from './entities';
 import { CreateAccountDto, UpdateEnabledDto, UpdateNameDto, DepositWithdrawDto } from './account.dto';
 import { AccountsService } from './account.service';

@@ -19,6 +19,7 @@
     "test:debug": "cross-env NODE_ENV=test node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e:startdb": "cross-env NODE_ENV=test-local test/start-e2e-db",
     "test:e2e:stopdb": "cross-env NODE_ENV=test-local test/stop-e2e-db",
+    "test:e2e:restartdb": "yarn test:e2e:stopdb && yarn test:e2e:startdb",
     "test:e2e:local": "cross-env NODE_ENV=test-local jest --config ./test/jest-e2e.json",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "typeorm": "typeorm-ts-node-esm",
