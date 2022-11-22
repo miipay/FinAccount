@@ -2,9 +2,9 @@ import { APP_FILTER, APP_PIPE } from '@nestjs/core';
 import { Module, ValidationPipe } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 // shared
-import { InternalServerErrorFilter } from './shared/filters/internal-server-error.filter';
-import { AllExceptionsFilter } from './shared/filters/all-exception.filter';
-import { EntityNotFoundExceptionFilter } from './shared/filters/entity-not-found.filter';
+import { InternalServerErrorFilter } from './shared/filters/internalServerError.filter';
+import { AllExceptionsFilter } from './shared/filters/allException.filter';
+import { EntityNotFoundExceptionFilter } from './shared/filters/entityNotFound.filter';
 import { getTypeOrmModuleForRoot } from './app.typeorm';
 // accounts
 import { AccountsModule } from './accounts/account.module';
